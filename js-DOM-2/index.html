@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        帐号：<input id="user" type="text" value="请输入帐号">
+        <span id="uNote">*</span>
+    </p>
+    <p>
+        密码：<input id="pwd" type="text" value="请输入密码">
+        <span id="pNote">*</span>
+    </p>
+    <button onclick="judge()">登录</button>
+    <script>
+        function judge(){
+            var uName = document.getElementById("user").value;
+            var pwdName = document.getElementById("pwd").value;
+            if(uName !== "123"){
+                document.getElementById("uNote").innerHTML="请输入正确的帐号";
+                document.getElementById("user").value=null;
+            } 
+            if(pwdName !== "123"){
+                document.getElementById("pNote").innerHTML="请输入正确的密码";
+                document.getElementById("pwd").value=null;
+            }
+        }
+    </script>
+</body>
+</html>

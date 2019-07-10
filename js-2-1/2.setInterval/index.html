@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>定时器示例</title>
+  </head>
+  <body>
+  
+  <input type="text" id="result">
+  <input type="button" id="start" onclick="start()" value="开始" >
+  <input type="button" id="stop" onclick="stop()" value="结束" >
+  
+  <script>
+      // write your code here
+      var h=m=s=ms= 0;  //定义时，分，秒，毫秒并初始化为0；
+   var time=0;
+ 
+   function timer(){   //定义计时函数
+     ms=ms+50;         //毫秒
+     if(ms>=1000){
+       ms=0;
+       s=s+1;         //秒
+     }
+     if(s>=60){
+       s=0;
+       m=m+1;        //分钟
+     }
+     if(m>=60){
+       m=0;
+       h=h+1;        //小时
+     }
+     str =toDub(h)+"时"+toDub(m)+"分"+toDub(s)+"秒"+toDubms(ms)+"毫秒";
+     mytime = document.getElementById('result');
+     mytime.value = str;
+   }
+   function start(){  //开始
+     time=setInterval(timer,50);
+   }
+ 
+   function stop(){  //暂停
+     clearInterval(time);
+   }
+ 
+   function toDub(n){  //补0操作
+     if(n<10){
+       return "0"+n;
+     }
+     else {
+       return ""+n;
+     }
+   }
+ 
+   function toDubms(n){  //给毫秒补0操作
+     if(n<10){
+       return "00"+n;
+     }
+     else {
+       return "0"+n;
+     }
+ 
+   }
+  </script>
+  </body>
+  </html>
